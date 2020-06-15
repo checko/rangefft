@@ -12,6 +12,14 @@ rxchirp = rxdata.reshape((16*4*2,256))
 plt.plot(np.abs(rxchirp[0]))
 plt.show()
 
-for i in range(20):
+for i in range(40):
 	plt.plot(np.abs(np.fft.fft(rxchirp[i])))
-	plt.show()
+plt.show()
+
+range_plot = np.fft.fft(rxchirp,axis=1)
+plt.imshow(np.abs(range_plot))
+plt.show()
+
+range_doppler = np.fft.fft(range_plot,axis=0)
+plt.imshow(np.abs(range_doppler))
+plt.show()
